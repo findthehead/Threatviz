@@ -1,8 +1,5 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-./__pycache__
-../../__pycache__
-../../../__pycache__
 *.py[cod]
 *$py.class
 
@@ -29,25 +26,10 @@ share/python-wheels/
 *.egg
 MANIFEST
 my_rag_db
-../my_rag_db
-../../my_rag_db
-./my_rag_db
 uv.lock
-../uv.lock
-./uv.lock
-../../uv.lock
-../../../uv.lock
 # Virtual environments
 .env
-./.env
-../.env
-../../.env
-../../../.env
 .venv
-./.venv
-../.venv
-../../.venv
-../../../.venv
 env/
 venv/
 ENV/
