@@ -7,19 +7,24 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_mistralai import ChatMistralAI
 
 
+
 _ = load_dotenv()
 
+
 def load_llm(provider: str):
+    #-------supported_models--------
+    #   qwen/qwen3-32b
+    #   meta-llama/llama-4-maverick-17b-128e-instruct
+    #   openai/gpt-oss-120b
+    #   openai/gpt-oss-20b
+    #   openai/gpt-4o-mini
+    #   moonshotai/kimi-k2-instruct-0905
+    #------------------------------------
     if provider == "groq":
         key = os.getenv("GROQ_API_KEY")
         if not key:
             raise RuntimeError("❌ GROQ_API_KEY not found in .env")
         return ChatGroq(model="moonshotai/kimi-k2-instruct-0905", temperature=0)
-    if provider == "mistral":
-        key = os.getenv("MISTRAL_API_KEY")
-        if not key:
-            raise RuntimeError("❌ MISTRAL_API_KEY not found in .env")
-        return ChatMistralAI(model="mistral-small-latest", temperature=0)
 
     if provider == "openai":
         key = os.getenv("OPENAI_API_KEY")
@@ -27,16 +32,5 @@ def load_llm(provider: str):
             raise RuntimeError("❌ OPENAI_API_KEY not found in .env")
         return ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
-    if provider == "claude":
-        key = os.getenv("ANTHROPIC_API_KEY")
-        if not key:
-            raise RuntimeError("❌ ANTHROPIC_API_KEY not found in .env")
-        return ChatAnthropic(model="claude-haiku-4.5", temperature=0)
-
-    if provider == "gemini":
-        key = os.getenv("GEMINI_API_KEY")
-        if not key:
-            raise RuntimeError("❌ GEMINI_API_KEY not found in .env")
-        return ChatGoogleGenerativeAI(model="gemini-1.5-pro", temperature=0)
 
     raise ValueError("Unsupported model provider")

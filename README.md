@@ -1,8 +1,8 @@
-# Threatviz - Turn any CVE into AI Powered Threat modeling 
+# `Threatviz👁️` - Turn any CVE into AI Powered Threat modeling 
 ![alt text](asset/logo.png)
 * Agentic AI based Threat Modeling Technique
-* Supports  STRIDE
-* Supports PASTA
+* Supports  `STRIDE`
+* Supports `PASTA`
 ### Just Insert any CVE then it will turn that to full end to end threat modeling workflow.
 
 
@@ -20,31 +20,33 @@
 
 ### Tech Stack
 
-- Langgraph for multi-agent orchestration
-- Faiss for the knowledge base and  RAG
-- Groq, OpenAI, Claude and Gemini for model endpoint
-- Huggingface for embedding
-- Streamlit for Web Interface
+- `Langgraph` for multi-agent orchestration
+- `Faiss` for the knowledge base and  RAG
+- `Groq` and `OpenAI` for model endpoint
+- `Huggingface` for embedding
+- `Streamlit` for Web Interface
 ---
 
 ### Below AI Models are spported
 | Model           | Status | 
 | :---------------- | :------: |
-| qwen/qwen3-32b      |   ✔️   |
-| meta-llama/llama-4-maverick-17b-128e-instruct          |   ✔️   |
-| openai/gpt-oss-120b   |  ✔️   | 
-| openai/gpt-oss-20b |  ✔️   |
-| openai/gpt-4o-mini |  ✔️   |
-| moonshotai/kimi-k2-instruct-0905|  ✔️   |
+| `qwen/qwen3-32b`      |   ✔️   |
+| `meta-llama/llama-4-maverick-17b-128e-instruct`          |   ✔️   |
+| `openai/gpt-oss-120b`   |  ✔️   | 
+| `openai/gpt-oss-20b` |  ✔️   |
+| `openai/gpt-4o-mini` |  ✔️   |
+| `moonshotai/kimi-k2-instruct-0905`|  ✔️   |
 
 ---
 ### Deployment
 - Local Deployment with light weight GUI.
-- Deployed and tested using Amazon Bedrock AgentCore and AgentCore memory services
-- AWS CloudWatch for observability
+- Deployed and tested using `Amazon Bedrock AgentCore Runtime` and `AgentCore Memory` services
+- `AWS CloudWatch` for observability
 
 ---
 ### Usage
+- Please check `.env.example` file to setup API key.
+- Once setup done, change it from `.env.example` to `.env`
 ```
 git clone https://github.com/findthead/Threatviz.git
 cd Threatviz
@@ -68,7 +70,7 @@ uv run threatviz.py -dashbord
 ![alt text](asset/cw3.png)
 
 ---
-### Please provide the citation.
+### `Please provide the citation.`
 ```
 @software{Threatviz,
   author = {Subhay},

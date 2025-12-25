@@ -34,7 +34,7 @@ def main(llm, cve):
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("-id", help="CVE ID to analyze")
-    parser.add_argument("-model", choices=["groq", "openai", "claude", "mistral", "gemini"], default="groq", help="LLM provider (default: groq)")
+    parser.add_argument("-model", choices=["groq", "openai"], default="groq", help="LLM provider (default: groq)")
     parser.add_argument("-html_report", action="store_true")
     parser.add_argument("-json_report", action="store_true")
     parser.add_argument("-dashboard", action="store_true", help="Launch web dashboard with CVE search")
