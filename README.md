@@ -56,7 +56,7 @@ uv run threatviz.py -id CVE-2025-55182 -html_report
 
 ### Host it locally with below command
 ```
-uv run threatviz.py -dashbord
+uv run threatviz.py -dashboard
 ```
 ### GUI for Local Deployment
 ![Web Interface](asset/web.png)
