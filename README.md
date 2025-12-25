@@ -27,7 +27,7 @@
 - `Streamlit` for Web Interface
 ---
 
-### Below AI Models are spported
+### Below AI Models are supported
 | Model           | Status | 
 | :---------------- | :------: |
 | `qwen/qwen3-32b`      |   ✔️   |
