@@ -15,7 +15,6 @@
 ![alt text](asset/tm3.png)
 ----
 ![alt text](asset/tm4.png)
-![alt text](asset/tm5.png)
 
 ----
 
