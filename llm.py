@@ -22,7 +22,7 @@ def load_llm(provider: str):
         if not key:
             raise RuntimeError("❌ GROQ_API_KEY not found in .env")
         return ChatGroq(model="moonshotai/kimi-k2-instruct-0905", temperature=0)
-
+    
     if provider == "openai":
         key = os.getenv("OPENAI_API_KEY")
         if not key:

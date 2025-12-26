@@ -153,11 +153,12 @@ def agent(llm):
     Your task is to analyze raw reports created by juniors and produce a comprehensive, professional report.
 
     Rules:  
-    1. Your output must be a valid JSON object with the following keys:
+    1. Your output must be a valid JSON object.
+    2. Dont add any unnessary keys or info other than the below which will break the system parser, all the informations should be distributed inside this below 4 JSON keys.\n
     {
     "TITLE": "A concise title containing the CVE ID and CVSS score",
     "EXECUTIVE_SUMMARY": "A short introduction of the CVE with CVSS score and other high-level info. Use multiple points separated by a newline, starting with '1.', '2.', etc.",
-    "DETAILED_ANALYSIS": "A detailed technical analysis of the CVE. Use multiple points separated by newline characters, starting with '1.', '2.', '3.', etc.",
+    "DETAILED_ANALYSIS": "A detailed technical analysis of the CVE. Use multiple points separated by newline characters, numbering with '1.', '2.', '3.' and sub-topics numbering in italic format i.,ii.,iii.,iv. etc.
     "RISK_ASSESSMENT": "Risk assessment including CVSS vector analysis from an attacker’s perspective. Include STRIDE and PASTA threat modeling separately, using newline characters for each point.",
     "THREAT_MODEL": "Mermaid syntax for diagrams representing the threat model. Include sequenceDiagram, graph, stateDiagram, or other supported mermaid types as needed.",
     "MITIGATION": "Exact mitigation steps or recommendations provided in the junior’s report. Use multiple points separated by newline characters starting with '1.', '2.', etc."
@@ -174,7 +175,7 @@ def agent(llm):
     "TITLE": "CVE-2025-55182: Critical Pre-Authentication RCE in React Server Components (CVSS Score: 10)",
     "EXECUTIVE_SUMMARY": "1. CVE-2025-55182 is a critical pre-authentication remote code execution vulnerability affecting React Server Components.\n2. It impacts react-server-dom-parcel, react-server-dom-turbopack, and react-server-dom-webpack versions 19.0.0 to 19.2.0.\n3. The vulnerability has a CVSS score of 10, indicating critical severity.",
     "DETAILED_ANALYSIS": "1. The vulnerability allows an attacker to execute arbitrary code on the server.\n2. Affected packages and versions:\n   1. react-server-dom-parcel: 19.0.0, 19.1.0, 19.1.1, 19.2.0\n   2. react-server-dom-turbopack: 19.0.0, 19.1.0, 19.1.1, 19.2.0\n   3. react-server-dom-webpack: 19.0.0, 19.1.0, 19.1.1, 19.2.0\n3. Exploitation may lead to full system compromise.",
-    "RISK_ASSESSMENT": "1. CVSS Score: 10 (Critical)\n2. STRIDE Threats:\n   1. Elevation of Privilege: allows arbitrary code execution.\n   2. Denial of Service: high likelihood of disruption.\n3. PASTA Threat Modeling:\n   1. Business Objectives: Protect React Server Components.\n   2. Technical Scope: Affected packages and versions.",
+    "RISK_ASSESSMENT": "1. CVSS Score: 10 (Critical)\n2. STRIDE Threats:\n   i. Elevation of Privilege: allows arbitrary code execution.\n   ii. Denial of Service: high likelihood of disruption.\n3. PASTA Threat Modeling:\n   i. Business Objectives: Protect React Server Components.\n   ii. Technical Scope: Affected packages and versions.",
     "THREAT_MODEL": "graph LR\nparticipant ThreatModeler as 'Threat Modeler'\nparticipant System as 'System'\nThreatModeler-->System: Identify Assets\nSystem-->ThreatModeler: Provide Components",
     "MITIGATION": "1. Upgrade to version 19.2.1 or later.\n2. Implement input validation and secure deserialization.\n3. Apply secure coding practices."
     }

@@ -19,14 +19,34 @@ def render_security_report_html(report: dict) -> str:
         return lines
 
     def generate_list(items):
-        """Convert list of strings to HTML list."""
-        if not items:
-            return ""
-        html = "<ul>\n"
+        html = ""
+        inside_list = False
         for item in items:
-            html += f"  <li>{item}</li>\n"
-        html += "</ul>"
+            if item and item[0].isdigit():
+                if inside_list:
+                    html += "</ul>\n"
+                    inside_list = False
+                html += f"<p>{item}</p>\n"
+            elif item.lower().startswith(("i.", "ii.", "iii.", "iv.", "v.", "vi.", "vii.", "viii.", "ix.", "x.")):
+                if not inside_list:
+                    html += "<ul>\n"
+                    inside_list = True
+                parts = item.split(" ", 1)
+                text = parts[1] if len(parts) > 1 else item
+                html += f"  <li>{text}</li>\n"
+            else:
+                if inside_list:
+                    html += "</ul>\n"
+                    inside_list = False
+                html += f"<p>{item}</p>\n"
+        if inside_list:
+            html += "</ul>\n"
+
         return html
+
+
+
+
 
     def split_mermaid_blocks(code: str):
         """Split mermaid code into separate blocks for rendering."""

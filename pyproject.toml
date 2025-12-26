@@ -1,5 +1,5 @@
 [project]
-name = "smartvm"
+name = "Threatviz"
 version = "0.1.0"
 description = "this tool can be used to Imagine a threatmodel out of a CVE"
 readme = "README.md"
